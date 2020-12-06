@@ -1,14 +1,18 @@
-<mat-card class="card">
+<!-- <mat-card class="card">
     <mat-card-content class="card content">
         <form class="form">
             <h2 class="header-caption">Log In</h2>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Email" formControlName="username" required>
+                
             </mat-form-field>
             <mat-form-field class="full-width-input">
-                <input matInput type="password" placeholder="Password" formControlName="password" required>
+              
             </mat-form-field>
-            <button mat-raised-button color="primary" >Login</button>
+          
         </form>
     </mat-card-content>
-</mat-card>
+</mat-card> -->
+<input matInput placeholder="Email" formControlName="username" required (keyup)="updateEmail($event)">
+<input matInput type="password" placeholder="Password" formControlName="password" required (keyup)="updatePassword($event)">
+<button mat-raised-button color="primary" (click)="authenticate()" >Login</button>
+<button mat-raised-button color="primary" (click)="validate()" >Validate</button>

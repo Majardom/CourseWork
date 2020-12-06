@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Authentication.Web
 {
@@ -7,7 +8,7 @@ namespace Authentication.Web
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+          
             // Web API routes
             config.MapHttpAttributeRoutes();
 

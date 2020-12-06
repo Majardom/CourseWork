@@ -1,9 +1,11 @@
 {
-    "backend": {
-        "endpoint": "https://localhost:44345",
+    "authenticationService": {
+        "endpoint": "http://localhost:4060",
         
+        "authenticatonTokenEndpoint" : "token",
+
         "restful": {
-            "trips" : "/api/trips"
+            "validateToken" : "api/validation"
         }
     }
 }
