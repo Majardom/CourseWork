@@ -16,8 +16,27 @@ namespace Authentication.Services
 
 		public User Authorize(string email, string password)
 		{
-			return _uow.Users.GetAll()
+			var authentificatedUser = _uow.Users.GetAll()
 				.FirstOrDefault(x => x.Email == email && x.Password == password);
+
+			if (authentificatedUser != null)
+			{
+				var ids = _uow.TokenIdentities.GetAll().Where(x => x.UserId == authentificatedUser.Id).Select(x => x.Id).ToList();
+				ids.ForEach(x => _uow.TokenIdentities.Delete(x));
+			}
+
+			return authentificatedUser;
+		}
+
+		public void SaveTokenIdentity(TokenIdentity tokenIdentity)
+		{
+			_uow.TokenIdentities.Create(tokenIdentity);
+			_uow.TokenIdentities.Save();
+		}
+
+		public bool Validate(string token)
+		{
+			return _uow.TokenIdentities.GetAll().Where(x => x.Token == token).Any();
 		}
 	}
 }

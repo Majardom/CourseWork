@@ -1,0 +1,26 @@
+:host{
+    height: 100%;
+    display: block;
+}
+
+.card {
+    height: 100%;
+    padding: 0px;
+    
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+
+    .header-caption {
+        text-align: center;
+    }
+}

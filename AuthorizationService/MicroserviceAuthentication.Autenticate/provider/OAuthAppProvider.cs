@@ -3,6 +3,7 @@ using Authentication.Services.Intefaces;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -47,9 +48,8 @@ namespace Authentication.Web
 
         public override Task TokenEndpointResponse(OAuthTokenEndpointResponseContext context)
         {
-            var dataFile = "d:\\accesstoken.txt";
-            var data = new TokenIdentity() { Token = context.AccessToken, UserId = context.Identity.Claims.Last().Value };
-            File.WriteAllText(@dataFile, JsonConvert.SerializeObject(data));
+            var data = new TokenIdentity() { Token = context.AccessToken, UserId = context.Identity.Claims.Last().Value, Id = Guid.NewGuid().ToString() };
+            _service.SaveTokenIdentity(data);
             return base.TokenEndpointResponse(context);
         }
 

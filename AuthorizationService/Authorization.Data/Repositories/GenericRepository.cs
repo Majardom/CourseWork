@@ -24,13 +24,13 @@ namespace Authentication.Data
 			Entities.Add(item);
 		}
 
-		public void Delete(int id)
+		public void Delete(string id)
 		{
 			Entities.Remove(Entities.Find(id));
 		}
 
 
-		public T Get(int id)
+		public T Get(string id)
 		{
 			return Entities.Find(id);
 		}

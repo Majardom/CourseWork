@@ -6,6 +6,9 @@ using Authentication.Services.Intefaces;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Authentication.Data;
+using System.Reflection;
+using Autofac.Integration.WebApi;
+using System.Web.Http;
 
 namespace Authentication.Web
 {
@@ -42,7 +45,7 @@ namespace Authentication.Web
         private void ConfigureContainer()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterControllers(typeof(TestController).Assembly);
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterType<AuthenticationDbContext>().As<AuthenticationDbContext>();
 
@@ -55,8 +58,8 @@ namespace Authentication.Web
             var container = builder.Build();
 
             _resolver = new AutofacDependencyResolver(container);
-
-            DependencyResolver.SetResolver(_resolver);
+            var config = GlobalConfiguration.Configuration;
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
     }
 }
