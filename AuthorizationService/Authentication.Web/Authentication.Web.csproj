@@ -174,7 +174,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AutofacConfig\AutofacConfig.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Extensions\OwinContextExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -195,7 +194,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Authentification.Services.Intefaces\Authentication .Services.Intefaces.csproj">
+    <ProjectReference Include="..\Authentication.Services.Intefaces\Authentication .Services.Intefaces.csproj">
       <Project>{EE719793-8E8E-4D6C-A5DC-CA01D7080295}</Project>
       <Name>Authentication .Services.Intefaces</Name>
     </ProjectReference>

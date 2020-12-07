@@ -27,7 +27,7 @@ namespace Authentication.Web
             {
                 var username = context.UserName;
                 var password = context.Password;
-                var user = _service.Authorize(username, password);
+                var user = _service.Autheticate(username, password);
                 if (user != null)
                 {
                     var claims = new List<Claim>()

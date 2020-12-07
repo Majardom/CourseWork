@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Authentication.Core;
 using Authentication.Interfaces;
 using Authentication.Services.Intefaces;
@@ -11,11 +12,19 @@ namespace Authentication.Services
 
 		public AuthenticationService(IUnitOfWork uow)
 		{
+			if (uow == null)
+				throw new ArgumentNullException(nameof(uow));
+
 			_uow = uow;
 		}
 
-		public User Authorize(string email, string password)
+		public User Autheticate(string email, string password)
 		{
+			if (string.IsNullOrEmpty(email))
+				throw new ArgumentNullException(nameof(email));
+			if (string.IsNullOrEmpty(password))
+				throw new ArgumentNullException(nameof(password));
+			
 			var authentificatedUser = _uow.Users.GetAll()
 				.FirstOrDefault(x => x.Email == email && x.Password == password);
 

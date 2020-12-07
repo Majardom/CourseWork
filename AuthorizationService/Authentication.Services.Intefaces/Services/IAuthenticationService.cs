@@ -4,7 +4,7 @@ namespace Authentication.Services.Intefaces
 {
 	public interface IAuthenticationService
 	{
-		User Authorize(string email, string password);
+		User Autheticate(string email, string password);
 
 		void SaveTokenIdentity(TokenIdentity tokenIdentity);
 

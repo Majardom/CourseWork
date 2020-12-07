@@ -45,10 +45,6 @@
     <Compile Include="Services\AuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Authentification.Services.Intefaces\Authentication .Services.Intefaces.csproj">
-      <Project>{EE719793-8E8E-4D6C-A5DC-CA01D7080295}</Project>
-      <Name>Authentication .Services.Intefaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Authorization.Core\Authentication .Core.csproj">
       <Project>{278B8B9F-5A5E-4871-92D4-D8CC3B20ED39}</Project>
       <Name>Authentication .Core</Name>
