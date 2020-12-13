@@ -41,5 +41,5 @@ jobs:
       - name: Build AuthenticationService
         run: msbuild AuthorizationService/Authentication.sln /p:Configuration=Debug
       - name: Run Unti Tests for Authentication Service
-        run: vstest.console.exe AuthorizationService/bin/Debug/Authentification.Services.Tests.dll
+        run: vstest.console.exe AuthorizationService\bin\Debug\Authentification.Services.Tests.dll
       
