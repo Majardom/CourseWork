@@ -38,8 +38,10 @@ jobs:
         
       - name: Build Recognition Service
         run: msbuild SpeachRecognitionService/RecognitionService/Recognition.sln /p:Configuration=Debug
+      - name: Run Untit Tests for Recognition Service
+        run: vstest.console.exe SpeachRecognitionService\RecognitionService\Recognition.Tests\bin\Debug\Recognition.Tests.dll
       - name: Build AuthenticationService
         run: msbuild AuthorizationService/Authentication.sln /p:Configuration=Debug
-      - name: Run Unti Tests for Authentication Service
+      - name: Run Untit Tests for Authentication Service
         run: vstest.console.exe AuthorizationService\Authentication.Services.Tests\bin\Debug\Authentification.Services.Tests.dll
       
