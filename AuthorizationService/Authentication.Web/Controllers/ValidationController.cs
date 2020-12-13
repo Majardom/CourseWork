@@ -14,13 +14,13 @@ namespace MicroserviceAuthentication.Autenticate.Controllers
 
         // Post: api/Test
         [HttpPost]
-        public bool Validate([FromBody]Dto dto)
+        public bool Validate([FromBody]TokenValidationDto dto)
         {
             return _service.Validate(dto.Token);
         }
     }
 
-	public class Dto
+	public class TokenValidationDto
 	{
         public string Token { get; set; }
     }

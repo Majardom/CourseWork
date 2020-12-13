@@ -11,7 +11,8 @@ import { AuthenticationService } from '../services/authentification.service';
 export class LoginComponent implements OnInit {
   private _email: string;
   private _password: string;
-  private _token: string;
+  public Token: string;
+  public IsValid: boolean;
 
   constructor(private _authService: AuthenticationService) { }
 
@@ -29,14 +30,15 @@ export class LoginComponent implements OnInit {
   authenticate(): void {
     this._authService.authenticate(this._email, this._password).subscribe((token: ITokenData) => {
       console.log(token);
-      this._token = token.access_token;
+      this.Token = token.access_token;
     },
       (error) => console.log(error));
   }
 
   validate(): void {
-    this._authService.validate(this._token).subscribe((token: boolean) => {
-      console.log(token);
+    this._authService.validate(this.Token).subscribe((isValid: boolean) => {
+      console.log(isValid);
+      this.IsValid = isValid;
     },
       (error) => console.log(error));
   }

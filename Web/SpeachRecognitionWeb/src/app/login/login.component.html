@@ -1,18 +1,6 @@
-<!-- <mat-card class="card">
-    <mat-card-content class="card content">
-        <form class="form">
-            <h2 class="header-caption">Log In</h2>
-            <mat-form-field class="full-width-input">
-                
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-              
-            </mat-form-field>
-          
-        </form>
-    </mat-card-content>
-</mat-card> -->
-<input matInput placeholder="Email" formControlName="username" required (keyup)="updateEmail($event)">
-<input matInput type="password" placeholder="Password" formControlName="password" required (keyup)="updatePassword($event)">
-<button mat-raised-button color="primary" (click)="authenticate()" >Login</button>
-<button mat-raised-button color="primary" (click)="validate()" >Validate</button>
+<input id="email" matInput placeholder="Email" formControlName="username" required (keyup)="updateEmail($event)">
+<input id="password" matInput type="password" placeholder="Password" formControlName="password" required (keyup)="updatePassword($event)">
+<button id="login" mat-raised-button color="primary" (click)="authenticate()" >Login</button>
+<button id="validate" mat-raised-button color="primary" (click)="validate()" >Validate</button>
+<div id="token">{{Token}}</div>
+<div id="validation">{{IsValid}}</div>
