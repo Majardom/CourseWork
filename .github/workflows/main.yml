@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Restore NuGet Packages
-        run: nuget restore SpeachRecognitionService/RecognitionService/SimpleFrameworkApp.sln
+        run: nuget restore SpeachRecognitionService/RecognitionService/Recognition.sln
         
       - name: Build Services
-        run: msbuild SpeachRecognitionService/RecognitionService/SimpleFrameworkApp.sln /p:Configuration=Debug
+        run: msbuild SpeachRecognitionService/RecognitionService/Recognition.sln /p:Configuration=Debug
