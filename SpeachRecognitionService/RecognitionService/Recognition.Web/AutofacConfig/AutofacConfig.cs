@@ -34,6 +34,8 @@ namespace Recognition.Web
 
 		private AutofacDependencyResolver _resolver;
 
+		public readonly string SamplesPath = @"C:\tmp\samples";
+
 		private AutofacConfig()
 		{
 			ConfigureContainer();
@@ -49,7 +51,7 @@ namespace Recognition.Web
 			var builder = new ContainerBuilder();
 			builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-			builder.RegisterType<RecognitionService>().As<IRecognitionService>().WithParameter("baseDirectory", @"C:\tmp\samples");
+			builder.RegisterType<RecognitionService>().As<IRecognitionService>().WithParameter("baseDirectory", SamplesPath);
 
 			var container = builder.Build();
 

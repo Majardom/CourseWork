@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Recognition.Core;
@@ -16,6 +17,9 @@ namespace Recognition.Service.Services
 
 		public RecognitionService(string baseDirectory)
 		{
+			if (baseDirectory == null)
+				throw new ArgumentNullException(nameof(baseDirectory));
+
 			_baseDirectory = baseDirectory;
 		}
 

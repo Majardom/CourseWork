@@ -57,10 +57,6 @@ namespace BDDTesting.Steps
                 .Should()
                 .NotBeNull();
 
-            token
-                .Should()
-                .NotBeNull();
-
             validation
                 .Should()
                 .NotBeNull();
