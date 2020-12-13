@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E73AC029-AFCC-4BAF-8C0C-95D62E181D91}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Authorization.Services</RootNamespace>
-    <AssemblyName>Authorization.Services</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ProjectGuid>{5271BEF3-4B02-463D-AEF2-06BA4EE5EC3E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Recognito.Playground</RootNamespace>
+    <AssemblyName>Recognito.Playground</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NAudio, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.4\lib\net35\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,21 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Authentication.Services.Intefaces\Authentication .Services.Intefaces.csproj">
-      <Project>{EE719793-8E8E-4D6C-A5DC-CA01D7080295}</Project>
-      <Name>Authentication .Services.Intefaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Authorization.Core\Authentication .Core.csproj">
-      <Project>{278B8B9F-5A5E-4871-92D4-D8CC3B20ED39}</Project>
-      <Name>Authentication .Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Authorization.Interfaces\Authentication .Interfaces.csproj">
-      <Project>{468FA97E-C888-4692-AF56-65F33053AE65}</Project>
-      <Name>Authentication .Interfaces</Name>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Recognito\Recognition.Core.csproj">
+      <Project>{173911fc-e8ce-4b5a-b155-c7f2f9abc355}</Project>
+      <Name>Recognition.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
