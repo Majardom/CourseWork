@@ -35,7 +35,7 @@ namespace Authentification.Services.Tests.Services
 		}
 
 		[TestMethod]
-		public void Authorize_Not_Existing_User_Email_Returns_Null()
+		public void Autheticate_Not_Existing_User_Email_Returns_Null()
 		{
 			//arrange
 			var sut = AuthentificateTestDataDactory.ProvideService();
@@ -51,7 +51,7 @@ namespace Authentification.Services.Tests.Services
 		}
 
 		[TestMethod]
-		public void Authorize_Incorrect_Password_Returns_Null()
+		public void Autheticate_Incorrect_Password_Returns_Null()
 		{
 			//arrange
 			var sut = AuthentificateTestDataDactory.ProvideService();
@@ -67,7 +67,7 @@ namespace Authentification.Services.Tests.Services
 		}
 
 		[TestMethod]
-		public void Authorize_Data_Is_Correct_Returns_User()
+		public void Autheticate_Data_Is_Correct_Returns_User()
 		{
 			//arrange
 			var email = AuthentificateTestDataDactory.UT_USER;

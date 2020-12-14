@@ -44,7 +44,6 @@ namespace Authetication.IntegrationTest.Authentication
 			HttpResponseMessage httpValidationResponse = null;
 
 			//act
-
 			using (var client = new HttpClient())
 			{
 				httpTokenResponse = await client.PostAsync(tokenURL, stringContent);
