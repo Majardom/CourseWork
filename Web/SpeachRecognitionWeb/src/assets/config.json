@@ -7,5 +7,14 @@
         "restful": {
             "validateToken" : "api/validation"
         }
+    },
+
+    "voiceRecognitionService": {
+        "endpoint": "http://localhost:60754",
+
+        "restful": {
+            "addVoiceSample": "api/recognition?sampleAuthorName=",
+            "identify": "api/recognition/identify"
+        }
     }
 }

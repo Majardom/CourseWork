@@ -7,4 +7,13 @@ export interface IAppConfig {
             validateToken: string;
         }
     }
+
+    voiceRecognitionService: {
+        endpoint: string,
+
+        restful: {
+            addVoiceSample: string,
+            identify: string
+        }
+    }
 }

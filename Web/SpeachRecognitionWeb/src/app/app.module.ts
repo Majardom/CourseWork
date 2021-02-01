@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
+import { AudioRecorderComponent } from './audio-recorder/audio-recorder.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,7 +28,8 @@ export function initializeApp(appConfig: AppConfigService) {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent, 
+    AudioRecorderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ export function initializeApp(appConfig: AppConfigService) {
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     AppConfigService,

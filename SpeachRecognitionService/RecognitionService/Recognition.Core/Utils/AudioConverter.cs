@@ -28,27 +28,15 @@ namespace Recognition.Core.Utils
                 if (format.BitsPerSample != 16)
                     throw new ArgumentException("audioInput", ERRO_AUDIO_FILE);
 
-
                 byte[] bytesBuffer = new byte[reader.Length];
                 int read = reader.Read(bytesBuffer, 0, bytesBuffer.Length - (bytesBuffer.Length % reader.WaveFormat.BlockAlign));
 
-                var floatSamples = new double[read / 2];
-                for (int sampleIndex = 0; sampleIndex < read / 2; sampleIndex++)
-                {
-                    var shortSampleValue = BitConverter.ToInt16(bytesBuffer, sampleIndex * 2);
-
-                    floatSamples[sampleIndex] = shortSampleValue / 32768.0;
-                }
-
-                return floatSamples;
-
-
-                ////Other way, but is a bit slower
-                //var sprov = reader.ToSampleProvider();
-                //var samples = new float[reader.Length];
-                //sprov.Read(samples, 0, (int)reader.Length);
-                //return Array.ConvertAll(samples, (f) => (double)f);
-            }
+				////Other way, but is a bit slower
+				var sprov = reader.ToSampleProvider();
+				var samples = new float[reader.Length];
+				sprov.Read(samples, 0, (int)reader.Length);
+				return Array.ConvertAll(samples, (f) => (double)f);
+			}
         }
 
         public static Stream WriteAudioInputStream(double[] doubles, bool seekBegin = true)

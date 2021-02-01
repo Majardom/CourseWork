@@ -43,7 +43,7 @@ namespace Recognition.Web.Controllers
             var identity = _service.RecognizeSpeaker(samples.FirstOrDefault());
 
             var response = new HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new StringContent($"identify.Key:{identity.Key},identify.Distance: {identity.Distance}, identify.LikelihoodRatio:{identity.LikelihoodRatio}");
+            response.Content = new StringContent($"identify.Key:{identity.Key}");
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/plain");
 
             return response;
