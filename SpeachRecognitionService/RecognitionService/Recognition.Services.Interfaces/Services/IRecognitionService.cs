@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Recognition.Core;
+﻿using System.Collections.Generic;
+using Recognito;
 
 namespace Recognition.Services.Interfaces.Services
 {

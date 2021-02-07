@@ -1,6 +1,6 @@
 ﻿
 
-namespace Recognition.Core.Vad
+namespace Recognito.Vad
 {
     //public enum ProcessingKey
     //{

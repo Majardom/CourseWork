@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Recognition.Core.Algorithms
+namespace Recognito.Algorithms
 {
     public class DiscreteAutocorrelationAtLagJ
     {

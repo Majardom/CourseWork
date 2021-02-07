@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Recognition.Core.Algorithms.Windowing
+namespace Recognito.Algorithms.Windowing
 {
     public class HammingWindowFunction : WindowFunction
     {

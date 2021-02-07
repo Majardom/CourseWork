@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recognition.Core.Vad
+namespace Recognito.Vad
 {
     public class AutocorrellatedVoiceActivityDetector
     {

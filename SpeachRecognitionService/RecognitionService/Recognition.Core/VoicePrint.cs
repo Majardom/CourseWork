@@ -1,10 +1,10 @@
-﻿using Recognition.Core.Distances;
-using Recognition.Core.Utils;
+﻿using Recognito.Distances;
+using Recognito.Utils;
 using System;
 using System.IO;
 using System.Threading;
 
-namespace Recognition.Core
+namespace Recognito
 {
     [Serializable]
     public sealed class VoicePrint

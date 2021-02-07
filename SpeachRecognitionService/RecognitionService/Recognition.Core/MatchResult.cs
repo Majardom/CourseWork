@@ -1,4 +1,4 @@
-﻿namespace Recognition.Core
+﻿namespace Recognito
 {
     /// <summary>
     /// MatchResult represents the result of matching a <code>VoicePrint</code> against a given voice sample. 

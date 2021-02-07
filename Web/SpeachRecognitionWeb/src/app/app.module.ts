@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppConfigService } from 'src/app/services/app-config.service';
 
+import { FormsModule } from '@angular/forms';
+
 export function initializeApp(appConfig: AppConfigService) {
   return () => appConfig.load();
 }
@@ -46,7 +48,8 @@ export function initializeApp(appConfig: AppConfigService) {
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule      
   ],
   providers: [
     AppConfigService,

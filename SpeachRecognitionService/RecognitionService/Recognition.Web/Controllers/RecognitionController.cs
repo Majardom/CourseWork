@@ -5,10 +5,12 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Recognition.Services.Interfaces.Services;
 
 namespace Recognition.Web.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class RecognitionController : ApiController
     {
         private readonly IRecognitionService _service;
@@ -22,31 +24,27 @@ namespace Recognition.Web.Controllers
         public HttpResponseMessage Sample(string sampleAuthorName, [FromBody]SampleDto sample)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
-            try
-            {
+            //try
+            //{
                 var samples = sample.SamplesBase64.Select(x => ConvertToByteArray(x)).ToList();
                 _service.AddVoiceSamples(sampleAuthorName, samples);
-            }
-            catch 
-            {
-                response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
-			}
+     //       }
+   //         catch (Exception ex)
+   //         {
+   //             response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+			//}
             
             return response;
         }
 
         [HttpPost]
         [Route("api/recognition/identify")]
-        public HttpResponseMessage Indentify([FromBody]SampleDto sample)
+        public string Indentify([FromBody]SampleDto sample)
         {
             var samples = sample.SamplesBase64.Select(x => ConvertToByteArray(x)).ToList();
             var identity = _service.RecognizeSpeaker(samples.FirstOrDefault());
 
-            var response = new HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new StringContent($"identify.Key:{identity.Key}");
-            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/plain");
-
-            return response;
+            return $"identify.Key:{identity.Key};{identity.LikelihoodRatio}";
         }
 
         private byte[] ConvertToByteArray(string base64String)

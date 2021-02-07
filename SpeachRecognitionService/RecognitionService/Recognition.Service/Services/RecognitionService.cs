@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Recognition.Core;
-using Recognition.Core.Vad;
 using Recognition.Services.Interfaces.Services;
+using Recognito;
+using Recognito.Vad;
 
 namespace Recognition.Service.Services
 {
@@ -13,7 +13,7 @@ namespace Recognition.Service.Services
 		private readonly string _baseDirectory;
 
 		private const int sampleRate = 44100;
-		private readonly Recognition<string> recognition = new Recognition<string>(sampleRate);
+		private readonly Recognito<string> recognition = new Recognito<string>(sampleRate);
 
 		public RecognitionService(string baseDirectory)
 		{
@@ -39,6 +39,10 @@ namespace Recognition.Service.Services
 		public MatchResult<string> RecognizeSpeaker(byte[] sample)
 		{
 			var voiceDetector = new AutocorrellatedVoiceActivityDetector();
+
+			var fullFileName = Path.Combine(_baseDirectory, "identify.wav");
+			File.WriteAllBytes(fullFileName, sample);
+
 			foreach (var persons in Directory.GetDirectories(_baseDirectory).OrderBy(f => f))
 			{
 				var info = new DirectoryInfo(persons);
@@ -61,10 +65,12 @@ namespace Recognition.Service.Services
 			MatchResult<string> identify;
 
 
-			using (var stream = new MemoryStream(sample))
+			using (var stream = new FileStream(fullFileName, FileMode.Open))
 			{
 				identify = recognition.Identify(stream).FirstOrDefault();
 			}
+
+			File.Delete(fullFileName);
 
 			return identify;
 		}

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Recognition.Core.Distances
+namespace Recognito.Distances
 {
     public abstract class DistanceCalculator
     {

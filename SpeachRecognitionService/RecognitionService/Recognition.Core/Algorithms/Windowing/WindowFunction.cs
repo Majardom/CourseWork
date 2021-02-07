@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recognition.Core.Algorithms.Windowing
+namespace Recognito.Algorithms.Windowing
 {
     public abstract class WindowFunction
     {

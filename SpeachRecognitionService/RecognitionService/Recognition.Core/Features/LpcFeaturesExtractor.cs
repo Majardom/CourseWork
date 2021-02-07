@@ -1,8 +1,8 @@
-﻿using Recognition.Core.Algorithms;
-using Recognition.Core.Algorithms.Windowing;
+﻿using Recognito.Algorithms;
+using Recognito.Algorithms.Windowing;
 using System;
 
-namespace Recognition.Core.Features
+namespace Recognito.Features
 {
     public class LpcFeaturesExtractor : WindowedFeaturesExtractor<double[]>
     {

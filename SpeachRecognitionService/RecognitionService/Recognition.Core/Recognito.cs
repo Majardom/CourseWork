@@ -1,8 +1,8 @@
-﻿using Recognition.Core.Distances;
-using Recognition.Core.Enchancements;
-using Recognition.Core.Features;
-using Recognition.Core.Utils;
-using Recognition.Core.Vad;
+﻿using Recognito.Distances;
+using Recognito.Enchancements;
+using Recognito.Features;
+using Recognito.Utils;
+using Recognito.Vad;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -12,9 +12,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Recognition.Core
+namespace Recognito
 {
-    public class Recognition<T>
+    public class Recognito<T>
     {
         static readonly float MIN_SAMPLE_RATE = 8000.0f;
         readonly object _lock = new object();
@@ -34,7 +34,7 @@ namespace Recognition.Core
          * Default constructor
          * @param sampleRate the sample rate, at least 8000.0 Hz (preferably higher)
          */
-        public Recognition(float sampleRate = 16000)
+        public Recognito(float sampleRate = 16000)
         {
             if (sampleRate < MIN_SAMPLE_RATE)
                 throw new ArgumentException("Sample rate should be at least 8000 Hz");
@@ -49,7 +49,7 @@ namespace Recognition.Core
          * @param sampleRate the sample rate, at least 8000.0 Hz (preferably higher)
          * @param voicePrintsByUserKey a {@code Map} containing user keys and their respective {@code VoicePrint}
          */
-        public Recognition(float sampleRate, Dictionary<T, VoicePrint> voicePrintsByUserKey) : this(sampleRate)
+        public Recognito(float sampleRate, Dictionary<T, VoicePrint> voicePrintsByUserKey) : this(sampleRate)
         {
             VoicePrint universalModel = null;
 

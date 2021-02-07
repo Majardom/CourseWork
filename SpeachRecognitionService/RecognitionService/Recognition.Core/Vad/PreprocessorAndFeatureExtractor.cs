@@ -1,9 +1,9 @@
-﻿using Recognition.Core.Enchancements;
-using Recognition.Core.Features;
-using Recognition.Core.Utils;
+﻿using Recognito.Enchancements;
+using Recognito.Features;
+using Recognito.Utils;
 using System.IO;
 
-namespace Recognition.Core.Vad
+namespace Recognito.Vad
 {
     public class PreprocessorAndFeatureExtractor
     {

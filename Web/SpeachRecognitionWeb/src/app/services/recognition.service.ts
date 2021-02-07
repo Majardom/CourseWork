@@ -23,4 +23,15 @@ export class RecognitionService {
     
     return this._http.post<object>(authenticationUrl, dto);
   }
+
+  public identifyUser(sampleBase64: string)
+  {
+    let identifyUrl = `${AppConfigService.settings.voiceRecognitionService.endpoint}/${AppConfigService.settings.voiceRecognitionService.restful.identify}`;
+
+    let dto: SampleDto = {
+      samplesBase64: [sampleBase64]
+    }
+
+    return this._http.post<string>(identifyUrl, dto);
+  }
 }

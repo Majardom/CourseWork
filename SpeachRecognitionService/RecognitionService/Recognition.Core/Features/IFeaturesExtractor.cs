@@ -1,4 +1,4 @@
-﻿namespace Recognition.Core.Features
+﻿namespace Recognito.Features
 {
     public interface IFeaturesExtractor<T>
     {

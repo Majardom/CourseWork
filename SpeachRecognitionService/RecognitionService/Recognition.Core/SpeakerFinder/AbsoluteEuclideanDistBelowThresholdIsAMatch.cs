@@ -1,9 +1,9 @@
-﻿using Recognition.Core.Distances;
-using Recognition.Core.Vad;
+﻿using Recognito.Distances;
+using Recognito.Vad;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Recognition.Core.SpeakerFinder
+namespace Recognito.SpeakerFinder
 {
     public class AbsoluteEuclideanDistBelowThresholdIsAMatch : ISpeakerFinderAlgorithm
     {

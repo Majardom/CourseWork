@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recognition.Core.Features
+namespace Recognito.Features
 {
     public abstract class WindowedFeaturesExtractor<T> : IFeaturesExtractor<T>
     {

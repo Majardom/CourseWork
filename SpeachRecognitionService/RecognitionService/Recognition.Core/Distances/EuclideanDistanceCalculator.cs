@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Recognition.Core.Distances
+namespace Recognito.Distances
 {
     class EuclideanDistanceCalculator : DistanceCalculator
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recognition.Core
+namespace Recognito
 {
     public static class ExtensionMethods
     {

@@ -65,10 +65,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Recognition.Core\Recognition.Core.csproj">
-      <Project>{173911FC-E8CE-4B5A-B155-C7F2F9ABC355}</Project>
-      <Name>Recognition.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Recognition.Service\Recognition.Service.csproj">
       <Project>{C47A7F2A-9E25-4695-AC1A-0F7A6E1A0EF6}</Project>
       <Name>Recognition.Service</Name>

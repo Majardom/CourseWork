@@ -1,4 +1,4 @@
-﻿using Recognition.Core.Distances;
+﻿using Recognito.Distances;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Recognition.Core.SpeakerFinder
+namespace Recognito.SpeakerFinder
 {
     public class SpeakerFinder
     {

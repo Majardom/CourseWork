@@ -1,5 +1,5 @@
 ﻿
-namespace Recognition.Core.SpeakerFinder
+namespace Recognito.SpeakerFinder
 {
     public class Match
     {

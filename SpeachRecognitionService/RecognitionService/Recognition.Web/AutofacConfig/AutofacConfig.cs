@@ -51,7 +51,8 @@ namespace Recognition.Web
 			var builder = new ContainerBuilder();
 			builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-			builder.RegisterType<RecognitionService>().As<IRecognitionService>().WithParameter("baseDirectory", SamplesPath);
+			//builder.RegisterType<RecognitionService>().As<IRecognitionService>().WithParameter("baseDirectory", SamplesPath);
+			builder.RegisterType<SpeakerRecignitionService>().As<IRecognitionService>();
 
 			var container = builder.Build();
 

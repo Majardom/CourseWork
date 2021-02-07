@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Recognition.Core.Enchancements
+namespace Recognito.Enchancements
 {
     public class Normalizer
     {

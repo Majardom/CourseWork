@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Recognition.Core
+namespace Recognito
 {
     public static class ArrayHelper
     {
