@@ -5,14 +5,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{173911FC-E8CE-4B5A-B155-C7F2F9ABC355}</ProjectGuid>
+    <ProjectGuid>{B3B9EBF7-F1F0-4616-A8BF-F9E346DE8216}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Recognito</RootNamespace>
-    <AssemblyName>Recognito</AssemblyName>
+    <RootNamespace>Recognition.Data</RootNamespace>
+    <AssemblyName>Recognition.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -40,9 +40,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="NAudio, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NAudio.1.8.4\lib\net35\NAudio.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -54,39 +51,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\DiscreteAutocorrelationAtLagJ.cs" />
-    <Compile Include="Algorithms\LinearPredictiveCoding.cs" />
-    <Compile Include="Algorithms\Windowing\HammingWindowFunction.cs" />
-    <Compile Include="Algorithms\Windowing\HannWindowFunction.cs" />
-    <Compile Include="Algorithms\Windowing\WindowFunction.cs" />
-    <Compile Include="Distances\ChebyshevDistanceCalculator.cs" />
-    <Compile Include="Distances\DistanceCalculator.cs" />
-    <Compile Include="Distances\EuclideanDistanceCalculator.cs" />
-    <Compile Include="Enchancements\Normalizer.cs" />
-    <Compile Include="Features\IFeaturesExtractor.cs" />
-    <Compile Include="Features\LpcFeaturesExtractor.cs" />
-    <Compile Include="Features\WindowedFeaturesExtractor.cs" />
-    <Compile Include="MatchResult.cs" />
+    <Compile Include="RecognitionDbContext\RecognitionDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recognito.cs" />
-    <Compile Include="SpeakerFinder\AbsoluteEuclideanDistBelowThresholdForPtcOfWordsIsAMatch.cs" />
-    <Compile Include="SpeakerFinder\AbsoluteEuclideanDistBelowThresholdIsAMatch.cs" />
-    <Compile Include="SpeakerFinder\ISpeakerFinderAlgorithm.cs" />
-    <Compile Include="SpeakerFinder\Match.cs" />
-    <Compile Include="SpeakerFinder\SpeakerFinder.cs" />
-    <Compile Include="Utils\ArrayHelper.cs" />
-    <Compile Include="Utils\ArrayWriter.cs" />
-    <Compile Include="Utils\ExtensionMethods.cs" />
-    <Compile Include="Utils\AudioConverter.cs" />
-    <Compile Include="Utils\MathHelper.cs" />
-    <Compile Include="Vad\AutocorrellatedVoiceActivityDetector.cs" />
-    <Compile Include="Vad\Keys.cs" />
-    <Compile Include="Vad\PreprocessorAndFeatureExtractor.cs" />
-    <Compile Include="VoicePrint.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\SpeakersRepository.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Recognition.Interfaces\Recognition.Interfaces.csproj">
+      <Project>{97D55AAD-409B-4A6E-B706-B0A1F85C62BD}</Project>
+      <Name>Recognition.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpeackerRecognition.Core\SpeackerRecognition.Core.csproj">
+      <Project>{F9FF3EC4-D4D8-4487-BD96-9E43E4A3F341}</Project>
+      <Name>SpeackerRecognition.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

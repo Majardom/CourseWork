@@ -13,16 +13,29 @@ namespace SpeackerRecognition.Core.VoiceSamples
 		private int _featuresSize = 20;
 
 		private int _sampleRate;
+
+		public string Id { get; set; }
+
 		public double[] MelFrequency { get; private set; }
 
 		public VoiceSample(byte[] sampleData, int sampleRate)
 		{
+			Id = Guid.NewGuid().ToString();
+
 			_sampleRate = sampleRate;
 
 			var amplitudes = ProvideAmplitudeValues(sampleData);
 			var normalizedAmplitudes = Normalize(amplitudes);
 			MelFrequency = GetFeatures(normalizedAmplitudes);
 		}
+
+		public VoiceSample(double[] melFrequency)
+		{
+			if (melFrequency.Length != _featuresSize)
+				throw new ArgumentException("Wrong size");
+
+			MelFrequency = melFrequency;
+;		}
 
 		private double[] ProvideAmplitudeValues(byte[] sample)
 		{

@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recognition.Core", "Recogni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeackerRecognition.Core", "SpeackerRecognition.Core\SpeackerRecognition.Core.csproj", "{F9FF3EC4-D4D8-4487-BD96-9E43E4A3F341}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recognition.Interfaces", "Recognition.Interfaces\Recognition.Interfaces.csproj", "{97D55AAD-409B-4A6E-B706-B0A1F85C62BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recognition.Data", "Recognition.Data\Recognition.Data.csproj", "{B3B9EBF7-F1F0-4616-A8BF-F9E346DE8216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,14 @@ Global
 		{F9FF3EC4-D4D8-4487-BD96-9E43E4A3F341}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9FF3EC4-D4D8-4487-BD96-9E43E4A3F341}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9FF3EC4-D4D8-4487-BD96-9E43E4A3F341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97D55AAD-409B-4A6E-B706-B0A1F85C62BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97D55AAD-409B-4A6E-B706-B0A1F85C62BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97D55AAD-409B-4A6E-B706-B0A1F85C62BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97D55AAD-409B-4A6E-B706-B0A1F85C62BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B9EBF7-F1F0-4616-A8BF-F9E346DE8216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B9EBF7-F1F0-4616-A8BF-F9E346DE8216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B9EBF7-F1F0-4616-A8BF-F9E346DE8216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B9EBF7-F1F0-4616-A8BF-F9E346DE8216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

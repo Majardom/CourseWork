@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -53,6 +54,12 @@
     </Reference>
     <Reference Include="Autofac.Integration.WebApi, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.WebApi2.4.0.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -268,6 +275,14 @@
       <Project>{173911fc-e8ce-4b5a-b155-c7f2f9abc355}</Project>
       <Name>Recognition.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Recognition.Data\Recognition.Data.csproj">
+      <Project>{B3B9EBF7-F1F0-4616-A8BF-F9E346DE8216}</Project>
+      <Name>Recognition.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Recognition.Interfaces\Recognition.Interfaces.csproj">
+      <Project>{97D55AAD-409B-4A6E-B706-B0A1F85C62BD}</Project>
+      <Name>Recognition.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Recognition.Services.Interfaces\Recognition.Services.Interfaces.csproj">
       <Project>{f8ea7260-d031-4f43-ab76-deb1e6cf19ef}</Project>
       <Name>Recognition.Services.Interfaces</Name>
@@ -275,6 +290,10 @@
     <ProjectReference Include="..\Recognition.Service\Recognition.Service.csproj">
       <Project>{c47a7f2a-9e25-4695-ac1a-0f7a6e1a0ef6}</Project>
       <Name>Recognition.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpeackerRecognition.Core\SpeackerRecognition.Core.csproj">
+      <Project>{F9FF3EC4-D4D8-4487-BD96-9E43E4A3F341}</Project>
+      <Name>SpeackerRecognition.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -310,7 +329,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

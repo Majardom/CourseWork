@@ -10,6 +10,8 @@ using Autofac.Integration.WebApi;
 using System.Web.Mvc;
 using Recognition.Service.Services;
 using Recognition.Services.Interfaces.Services;
+using Recognition.Data;
+using Recognition.Interfaces;
 
 namespace Recognition.Web
 {
@@ -50,6 +52,12 @@ namespace Recognition.Web
 		{
 			var builder = new ContainerBuilder();
 			builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
+			builder.RegisterType<RecognitionDbContext>().As<RecognitionDbContext>();
+
+			builder.RegisterType<SpeakersRepository>().As<ISpeakerRepository>();
+
+			builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
 
 			//builder.RegisterType<RecognitionService>().As<IRecognitionService>().WithParameter("baseDirectory", SamplesPath);
 			builder.RegisterType<SpeakerRecignitionService>().As<IRecognitionService>();
